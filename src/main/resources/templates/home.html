@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang = "en" xmlns:th="http://www.thymeleaf.org" th:replace=base::layout(~{::section})>
+<head>
+	<meta charset="utf-8">
+	<title>This is home page</title>
+</head>
+<body>
+	<section class="banner d-flex justify-content-center align-items-center">
+		<div class="text-center">
+				<p class= "font-weight-bold">
+					<img src = "../img/logo.png" alt = "Logo"><br>
+					University of Petroleum And Energy Sciences
+				</p>
+				<form class="clkbtn" action="http://localhost:8282/signin/">
+         			<button type="submit">Login</button>
+     			</form>
+				<!--<button class="btn bg-primary btn-md text-white" href="@{/signin/}">Login</button>-->
+		</div>
+	</section>
+</body>
+</html>

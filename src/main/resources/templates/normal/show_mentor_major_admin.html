@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang = "en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="utf-8">
+	<title>This is home page</title>
+</head>
+<body>
+		<section>
+	
+	<div class="card mr-3 ml-3">
+	
+		<div class="card-body">
+			<h1 class="text-center">Mentors List</h1>
+			
+			<table class="table">
+				  <thead>
+				    <tr>
+				      <th scope="col">SNo.</th>
+				      <th scope="col">Name</th>
+				      <th scope="col">Email</th>
+				      <th scope="col">Contact No.</th>
+				      <th scope="col">Seats_Available</th>
+				      <th scope="col">Edit</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  
+				  <tr>
+				      <tr th:each="d : ${major}">
+				      <th scope="row" th:text="${d.id}">1</th>
+				      
+				      <td>
+				      
+				      <a href="#" th:href="@{'/dashboard/mentor/' + ${d.id}}">
+				      
+				      <span th:text="${d.name}"></span>
+				      
+				      </a>
+				      </td>
+				      
+				   <!--   <td th:text="${d.name}">Mark</td>-->
+				      <td th:text="${d.email}">Otto</td>
+				      <td th:text="${d.phoneno}">@mdo</td>
+				      <td th:text="${d.seats}">@mdo</td>
+				      <td>
+				<form method="post" th:action="@{'/dashboard/edit/'+${d.id}}">
+				      <button th:each="c : ${user}" th:if="${c.name} == ${d.name}" type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+			    </form>
+				      </td>
+				    </tr>
+				  
+		</tbody>
+				</table>
+		</div>
+		
+	</div>
+	
+	</section>
+</body>
+</html>
